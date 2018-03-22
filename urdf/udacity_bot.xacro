@@ -2,7 +2,8 @@
 
 <robot name="udacity_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
   
-  <xacro:include filename="$(find slam_project)/urdf/udacity_bot.gazebo" />	
+  <xacro:include filename="$(find slam_project)/urdf/udacity_bot.gazebo" />
+  <xacro:property name="M_PI" value="3.1415926535897931" />	
   <link name="robot_footprint"></link>
 
   <joint name="robot_footprint_joint" type="fixed">
@@ -209,7 +210,7 @@
 </link>
 
 <joint type="fixed" name="rgbd_joint">
-  <origin xyz="0.0 0.0 0.0" rpy="-1.5707 0 0"/>
+  <origin xyz="0.0 0.0 0.0" rpy="${-M_PI/2} 0 ${-M_PI/2}"/>
   <child link="rgbd_camera"/>
   <parent link="camera"/>
 </joint>
